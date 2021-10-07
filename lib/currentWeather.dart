@@ -14,8 +14,19 @@ class _CurrentWeatherPageState extends State<CurrentWeatherPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text(
-          'My Weather App!'
+        child: FutureBuilder(
+          builder: (context, snapshot) {
+            if(snapshot.hasData) {
+               Weather _weather = snapshot.data as Weather;
+              return weatherBox(_weather);
+            } else if(snapshot.hasError) {
+              return Text('Error getting weather');
+            }
+            else {
+              return CircularProgressIndicator();
+            }
+          },
+          future: getCurrentWeather(),
         ),
       ),
     );
@@ -50,10 +61,9 @@ class _CurrentWeatherPageState extends State<CurrentWeatherPage> {
 
     if(response.statusCode == 200) {
       weather = Weather.fromJson(jsonDecode(response.body));
+      return weather;
     } else {
-      // ???
+      throw Exception('Error fetching users');
     }
-
-    return weather;
   }
 }
