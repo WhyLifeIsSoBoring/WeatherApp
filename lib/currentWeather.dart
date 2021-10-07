@@ -34,18 +34,35 @@ class _CurrentWeatherPageState extends State<CurrentWeatherPage> {
 
   Widget weatherBox(Weather _weather) {
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        Text(
-          '${_weather.temperature}°C'
+        Container(
+          margin: EdgeInsets.all(10),
+          child: Text(
+            '${_weather.temperature}°C',
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 60),
+          ),
         ),
-        Text(
-          '${_weather.description}'
+        Container(
+          margin: EdgeInsets.all(5),
+          child: Text(
+            '${_weather.description}',
+            style: TextStyle( fontSize: 30),
+          ),
         ),
-        Text(
-          'Feels:${_weather.feelsLike}°C'
+        Container(
+          margin: EdgeInsets.all(5),
+          child: Text(
+            'Feels:${_weather.feelsLike}°C',
+            style: TextStyle( fontSize: 30),
+          ),
         ),
-        Text(
-          'H:${_weather.high}°C L:${_weather.low}°C'
+        Container(
+          margin: EdgeInsets.all(5),
+          child: Text(
+            'H:${_weather.high}°C L:${_weather.low}°C',
+            style: TextStyle( fontSize: 30),
+          ),
         ),
       ],
     );
