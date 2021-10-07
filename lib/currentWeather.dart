@@ -55,7 +55,7 @@ class _CurrentWeatherPageState extends State<CurrentWeatherPage> {
     Weather weather;
     String city = "minsk";
     String apiKey = "fa9d791964704e17c3d2943c20e2533a";
-    var url = "https://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apiKey";
+    var url = "https://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apiKey&units=metric";
 
     final response = await http.get(Uri.parse(url));
 
