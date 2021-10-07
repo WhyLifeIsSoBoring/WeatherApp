@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/models/weather.dart';
 
 class CurrentWeatherPage  extends StatefulWidget {
 
@@ -15,6 +16,25 @@ class _CurrentWeatherPageState extends State<CurrentWeatherPage> {
           'My Weather App!'
         ),
       ),
+    );
+  }
+
+  Widget weatherBox(Weather _weather) {
+    return Column(
+      children: <Widget>[
+        Text(
+          '${_weather.temperature}°C'
+        ),
+        Text(
+          '${_weather.description}'
+        ),
+        Text(
+          'Feels:${_weather.feelsLike}°C'
+        ),
+        Text(
+          'H:${_weather.high}°C L:${_weather.low}°C'
+        ),
+      ],
     );
   }
 }
